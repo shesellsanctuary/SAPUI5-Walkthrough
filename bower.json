@@ -1,0 +1,8 @@
+{
+  "name": "SAPUI5-walkthrough",
+  "dependencies": {
+    "openui5-sap.ui.core": "git://github.wdf.sap.corp/openui5/packaged-sap.ui.core.git#^1.50.3",
+    "openui5-sap.m": "git://github.wdf.sap.corp/openui5/packaged-sap.m.git#^1.50.3",
+    "openui5-themelib_sap_belize": "git://github.wdf.sap.corp/openui5/packaged-themelib_sap_belize.git#^1.50.3"
+  }
+}
