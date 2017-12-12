@@ -2,7 +2,8 @@ sap.ui.define([
   'sap/ui/core/UIComponent',
   'com/sap/CloudSCAME/SAPUI5-walkthrough/model/models',
   "sap/ui/model/json/JSONModel",
-], function(UIComponent, models, JSONModel) {
+	"com/sap/CloudSCAME/SAPUI5-walkthrough/controller/HelloDialog"
+], function(UIComponent, models, JSONModel, HelloDialog) {
   'use strict';
   return UIComponent.extend('com.sap.CloudSCAME.SAPUI5-walkthrough.Component', {
     metadata: {
@@ -25,11 +26,18 @@ sap.ui.define([
        var oModel = new JSONModel(oData);
        this.setModel(oModel);
 
+       // set dialog
+      this._helloDialog = new HelloDialog(this.getRootControl());
+      
       //Initialize the router
       this.getRouter().initialize();
 
       // Set the device model
       this.setModel(models.getDeviceModel(), "Device");
+    },
+
+    openHelloDialog : function () {
+      this._helloDialog.open();
     }
   });
 });

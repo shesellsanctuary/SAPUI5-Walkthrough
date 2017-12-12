@@ -44,6 +44,10 @@
 				"settings": {
 					"bundleName": "com.sap.CloudSCAME.SAPUI5-walkthrough.i18n.i18n"
 				}
+			},
+			"invoice": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "Invoices.json"
 			}
 		},
 		"contentDensities": {
@@ -63,6 +67,13 @@
             ],
 			"targets": {
 			}
+		},
+		"resources": {
+		  "css": [
+			{
+			  "uri": "css/style.css"
+			}
+		  ]
 		}
 	}
 }
