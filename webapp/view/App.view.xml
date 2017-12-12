@@ -3,23 +3,17 @@
 		xmlns:mvc="sap.ui.core.mvc"
 		displayBlock="true"
 		xmlns="sap.m">
-		<App id="idAppControl">
+		<App id="idAppControl" class="myAppWT">
 			<Page id="idPageControl" title="{i18n>appPageTitle}">
+				<headerContent>
+					<Button
+						icon="sap-icon://hello-world"
+						press="onOpenDialog"/>
+				</headerContent>
 				<content>
-					<Panel headerText="{i18n>helloPanelTitle}" >
-						<content>
-
-							<Button
-								text="{i18n>showHelloButtonText}"
-								press="onShowHello"/>
-							<Input
-					      value="{/recipient/name}"
-					      description="Hello {/recipient/name}"
-					      valueLiveUpdate="true"
-					      width="60%"/>
-						</content>
-					</Panel>
+                	<mvc:XMLView viewName="com.sap.CloudSCAME.SAPUI5-walkthrough.view.HelloPanel"/>		
+					<mvc:XMLView viewName="com.sap.CloudSCAME.SAPUI5-walkthrough.view.InvoiceList"/>			
 				</content>
-  		</Page>
+  			</Page>
 		</App>
 </mvc:View>
