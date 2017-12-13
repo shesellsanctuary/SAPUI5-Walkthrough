@@ -1,14 +1,49 @@
 <mvc:View
+   controllerName="com.sap.CloudSCAME.SAPUI5-walkthrough.controller.InvoiceList"
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc">
    <List
-      headerText="{i18n>invoiceListTitle}"
+      id="invoiceList"
       class="sapUiResponsiveMargin"
       width="auto"
-      items="{invoice>/Invoices}" >
+      items="{
+         path : 'invoice>/Invoices',
+         sorter : {
+            path : 'ShipperName' ,
+            descending: false,
+            group: true
+         }
+      }" >
+      <headerToolbar>
+         <Toolbar>
+            <Title text="{i18n>invoiceListTitle}"/>
+            <ToolbarSpacer/>
+            <SearchField width="50%" search="onFilterInvoices" selectOnFocus="false"/>
+         </Toolbar>
+      </headerToolbar>
       <items>
          <ObjectListItem
-            title="{invoice>Quantity} x {invoice>ProductName}"/>
+            title="{invoice>Quantity} x {invoice>ProductName}"
+            number="{
+			parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+			type: 'sap.ui.model.type.Currency',
+			formatOptions: {
+				showMeasure: false
+			}
+		}"
+		numberUnit="{view>/currency}"
+            numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"  >
+            <firstStatus>
+                  <ObjectStatus text="{
+                        path: 'invoice>Status',
+                        formatter: '.formatter.statusText'
+                  }"/>
+		</firstStatus>
+	   </ObjectListItem>
       </items>
    </List>
 </mvc:View>
+
+<!-- numberState - Expression binding, $ for model binding inside -->
+
+<!-- A "." in front of the formatter name means that the function is looked up in the controller of the current view -->
