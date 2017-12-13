@@ -1,14 +1,15 @@
+jQuery.sap.require("sap.ui.qunit.qunit-css");
+jQuery.sap.require("sap.ui.thirdparty.qunit");
+jQuery.sap.require("sap.ui.qunit.qunit-junit");
+
 sap.ui.require([
   //Load page objects
   "sap/ui/test/Opa5",
   "com/sap/CloudSCAME/SAPUI5-walkthrough/test/integration/pages/CommonPage",
-  "sap/ui/qunit/qunit-css",
-  "sap/ui/thirdparty/qunit",
-  "sap/ui/qunit/qunit-junit"
-], function (Opa5, CommonPage) {
+  "com/sap/CloudSCAME/SAPUI5-walkthrough/test/integration/navigationJourney"
+], function (Opa5, CommonPage, navigationJourney) {
   "use strict";
   QUnit.config.autostart = false;
-    
   Opa5.extendConfig({
     arrangements: new CommonPage(),
     viewNamespace: "com.sap.CloudSCAME.SAPUI5-walkthrough.view."

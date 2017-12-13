@@ -15,7 +15,7 @@ sap.ui.define([
 		 */
     init : function () {
       var oUriParameters = jQuery.sap.getUriParameters(),								
-        sMockServerUrl = "";
+        sMockServerUrl = "/destinations/northwind/V2/Northwind/Northwind.svc/";
 
       oMockServer = new MockServer({
         rootUri : sMockServerUrl
@@ -34,9 +34,14 @@ sap.ui.define([
 			// configure mock server with a delay of 1s
       MockServer.config({
         autoRespond : true,
-        autoRespondAfter : (oUriParameters.get("serverDelay") || 500)
+        autoRespondAfter : (oUriParameters.get("serverDelay") || 1000)
       });
 
+      // simulate
+			//var sPath = jQuery.sap.getModulePath("com.sap.CloudSCAME.SAPUI5-walkthrough.localService");
+      //oMockServer.simulate(sPath + "/metadata.xml", sPath + "/mockdata");
+      
+      // start
       oMockServer.start();
 
       jQuery.sap.log.info("Running the app with mock data");
