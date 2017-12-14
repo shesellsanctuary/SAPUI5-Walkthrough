@@ -1,0 +1,17 @@
+<mvc:View
+	controllerName="com.sap.CloudSCAME.SAPUI5-walkthrough.controller.Detail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:wt="com.sap.CloudSCAME.SAPUI5-walkthrough.control">
+	<Page
+		title="{i18n>detailPageTitle}"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+		<content>
+			<ObjectHeader
+				intro="{invoice>ShipperName}"
+				title="{invoice>ProductName}"/>
+			<wt:ProductRating class="sapUiSmallMarginBeginEnd" change="onRatingChange"/>
+		</content>
+	</Page>
+</mvc:View>

@@ -68,13 +68,29 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "com.sap.CloudSCAME.SAPUI5-walkthrough.view",
-				"controlId": "idAppControl",
+				"controlId": "app",
 				"controlAggregation": "pages",
 				"async": true
 			},
 			"routes": [
+						{
+							"pattern": "",
+							"name": "overview",
+							"target": "overview"
+						},
+						{
+							"pattern": "detail/{invoicePath}",
+							"name": "detail",
+							"target": "detail"
+						}
             ],
 			"targets": {
+				"overview": {
+					"viewName": "Overview"
+				},
+				"detail": {
+					"viewName": "Detail"
+				}
 			}
 		},
 		"resources": {

@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>OPA5 TestSuite</title>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta charset="utf-8">
-
-    <script id="sap-ui-bootstrap" 
-            src="/resources/sap-ui-core.js" 
-            data-sap-ui-resourceroots='{
-			     "com.sap.CloudSCAME.SAPUI5-walkthrough.test": "../",
-			     "com.sap.CloudSCAME.SAPUI5-walkthrough" : "../mockServer"
-                }'
-            data-sap-ui-frameOptions='deny'>
-    </script>
-
-    <script>
-        // All journeys
-        jQuery.sap.require("com.sap.CloudSCAME.SAPUI5-walkthrough.test.integration.AllJourneys");
-    </script>
-
+	<title>Opa tests for SAPUI5 Walkthrough</title>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta charset="utf-8">
+ 
+	<script id="sap-ui-bootstrap"
+			src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-resourceroots='{
+			"com.sap.CloudSCAME.SAPUI5-walkthrough.test.integration": "./",
+			"com.sap.CloudSCAME.SAPUI5-walkthrough.test" : "../mockServer"
+		}'>
+	</script>
+ 
+	<script>
+		jQuery.sap.require("sap.ui.qunit.qunit-css");
+		jQuery.sap.require("sap.ui.thirdparty.qunit");
+		jQuery.sap.require("sap.ui.qunit.qunit-junit");
+		jQuery.sap.require("sap.ui.test.opaQunit");
+		jQuery.sap.require("sap.ui.test.Opa5");
+ 
+		// pages
+		jQuery.sap.require("com.sap.CloudSCAME.SAPUI5-walkthrough.test.integration.pages.App");
+ 
+		// journeys
+		jQuery.sap.require("com.sap.CloudSCAME.SAPUI5-walkthrough.test.integration.navigationJourney");
+	</script>
+ 
 </head>
-
 <body>
-    <div id="qunit"></div>
-    <div id="qunit-fixture"></div>
+<div id="content"></div>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
 </body>
-
 </html>

@@ -12,7 +12,7 @@ sap.ui.require([
   QUnit.config.autostart = false;
   Opa5.extendConfig({
     arrangements: new CommonPage(),
-    viewNamespace: "com.sap.CloudSCAME.SAPUI5-walkthrough.view."
+    viewNamespace: "com.sap.CloudSCAME.SAPUI5-walkthrough.view"
   });
     
   sap.ui.require([
