@@ -25,6 +25,8 @@ sap.ui.define([
 				oDialog = sap.ui.xmlfragment(oView.getId(), "com.sap.CloudSCAME.SAPUI5-walkthrough.view.HelloDialog", oFragmentController);
 				// connect dialog to the root view of this component (models, lifecycle)
 				oView.addDependent(oDialog);
+				// The content density class defined on the app view is not known to the dialog so forward compact/cozy style into dialog
+				jQuery.sap.syncStyleClass(oView.getController().getOwnerComponent().getContentDensityClass(), oView, oDialog); 
 			}
 			oDialog.open();
 		}

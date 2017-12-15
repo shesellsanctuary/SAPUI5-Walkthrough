@@ -2,8 +2,9 @@ sap.ui.define([
   'sap/ui/core/UIComponent',
   'com/sap/CloudSCAME/SAPUI5-walkthrough/model/models',
   "sap/ui/model/json/JSONModel",
-	"com/sap/CloudSCAME/SAPUI5-walkthrough/controller/HelloDialog"
-], function(UIComponent, models, JSONModel, HelloDialog) {
+	"com/sap/CloudSCAME/SAPUI5-walkthrough/controller/HelloDialog",
+	"sap/ui/Device"
+], function(UIComponent, models, JSONModel, HelloDialog, Device) {
   'use strict';
   return UIComponent.extend('com.sap.CloudSCAME.SAPUI5-walkthrough.Component', {
     metadata: {
@@ -26,6 +27,11 @@ sap.ui.define([
        var oModel = new JSONModel(oData);
        this.setModel(oModel);
 
+       // set device model
+			var oDeviceModel = new JSONModel(Device);
+			oDeviceModel.setDefaultBindingMode("OneWay");
+			this.setModel(oDeviceModel, "device");
+
        // set dialog
       this._helloDialog = new HelloDialog(this.getRootControl());
       
@@ -34,6 +40,17 @@ sap.ui.define([
 
       // Set the device model
       this.setModel(models.getDeviceModel(), "Device");
+    },
+    
+    getContentDensityClass : function() {
+      if (!this._sContentDensityClass) {
+        if (!sap.ui.Device.support.touch) {
+          this._sContentDensityClass = "sapUiSizeCompact";
+        } else {
+          this._sContentDensityClass = "sapUiSizeCozy";
+        }
+      }
+      return this._sContentDensityClass;
     },
 
     openHelloDialog : function () {
