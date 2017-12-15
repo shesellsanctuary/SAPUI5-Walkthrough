@@ -8,8 +8,8 @@ sap.ui.define([
   "use strict"; // it helps to prevent common JavaScript pitfalls and it’s therefore a good practice
   return Controller.extend("com.sap.CloudSCAME.SAPUI5-walkthrough.controller.App",  {
     onInit: function () {
-      this.getView().addStyleClass(utils.getContentDensityClass());
-    },
+			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
+		},
 
     onOpenDialog : function () {
 			this.getOwnerComponent().openHelloDialog();
